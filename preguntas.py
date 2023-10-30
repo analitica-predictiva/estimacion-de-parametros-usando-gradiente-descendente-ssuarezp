@@ -13,13 +13,13 @@ def pregunta_01():
     Complete el código presentado a continuación.
     """
     # Importe pandas
-    import ___ as ___
+    import pandas as pd
 
     # Importe PolynomialFeatures
     from ___ import ___
 
     # Cargue el dataset `data.csv`
-    data = ___.___("___")
+    data = pd.read_csv("data.csv")
 
     # Cree un objeto de tipo `PolynomialFeatures` con grado `2`
     poly = ___.___(___)
@@ -34,17 +34,17 @@ def pregunta_01():
 def pregunta_02():
 
     # Importe numpy
-    import ___ as ___
+    import numpy as np
 
     x_poly, y = pregunta_01()
 
     # Fije la tasa de aprendizaje en 0.0001 y el número de iteraciones en 1000
-    learning_rate = ___
-    n_iterations = ___
+    learning_rate = 0.0001
+    n_iterations = 1000
 
     # Defina el parámetro inicial `params` como un arreglo de tamaño 3 con ceros
     params = np.___(___.shape[1])
-    for _ in range(n_iterations):
+    for epoch in range(n_iterations):
 
         # Compute el pronóstico con los parámetros actuales
         y_pred = np.___(___, ___)
