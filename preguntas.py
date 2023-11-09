@@ -16,16 +16,16 @@ def pregunta_01():
     import pandas as pd
 
     # Importe PolynomialFeatures
-    from ___ import ___
+    from sklearn.preprocessing import PolynomialFeatures
 
     # Cargue el dataset `data.csv`
     data = pd.read_csv("data.csv")
 
     # Cree un objeto de tipo `PolynomialFeatures` con grado `2`
-    poly = ___.___(___)
+    poly = PolynomialFeatures(2)
 
     # Transforme la columna `x` del dataset `data` usando el objeto `poly`
-    x_poly = poly.___(data[["___"]])
+    x_poly = poly.fit_transform(data[["x"]])
 
     # Retorne x y y
     return x_poly, data.y
@@ -43,17 +43,17 @@ def pregunta_02():
     n_iterations = 1000
 
     # Defina el parámetro inicial `params` como un arreglo de tamaño 3 con ceros
-    params = np.___(___.shape[1])
+    params = np.zeros(x_poly.shape[1])
     for epoch in range(n_iterations):
 
         # Compute el pronóstico con los parámetros actuales
-        y_pred = np.___(___, ___)
+        y_pred = np.dot(x_poly, params)
 
         # Calcule el error
-        error = ___ - ___
+        error = y_pred - y
 
         # Calcule el gradiente
-        gradient = ____
+        gradient = np.dot(x_poly.T, error)
 
         # Actualice los parámetros
         params = params - learning_rate * gradient
